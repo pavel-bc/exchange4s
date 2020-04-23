@@ -1,5 +1,7 @@
 # exchange4s
 
+[![scaladoc](https://img.shields.io/badge/scaladoc-1.0.0-green?style=for-the-badge&logo=scala)](https://pavel-bc.github.io/exchange4s)
+
 [Blockchain Exchange API](https://exchange.blockchain.com/api) client implementation in Scala.
 
 Features:
