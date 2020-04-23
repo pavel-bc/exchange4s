@@ -1,23 +1,24 @@
 import com.blockchain.exchange4s.ExchangeClient
 import com.blockchain.exchange4s.data.Predef._
 import com.blockchain.exchange4s.data.{Request, Response}
+import com.blockchain.exchange4s.data.Response._
 
 object AuthenticatedChannels extends ExampleRunner {
-  def run: Unit = {
+  def run(): Unit = {
     // Handle necessary types of incoming messages
     val handler = (response: Response) =>
       response match {
-        case Response.Error(_, text) =>
+        case Error(_, text) =>
           println(s"❌ $text")
-        case Response.Auth(_, ev, _) =>
+        case Auth(_, ev, _) =>
           println(s"🔑 $ev")
-        case Response.Balances(_, ev, balances, _, _) if ev == EVENT_SNAPSHOT =>
+        case Balances(_, ev, balances, _, _) if ev == EVENT_SNAPSHOT =>
           println(s"💰 $balances")
         case _ =>
       }
 
     // Instantiate client
-    val token = "YOUR_API_TOKEN"
+    val token    = "YOUR_API_TOKEN"
     val exchange = new ExchangeClient(onEvent = handler, onMessage = logger)
 
     // Authenticate & subscribe to private channels
@@ -41,10 +42,8 @@ object AuthenticatedChannels extends ExampleRunner {
     // Cancel an order
     exchange.cancelOrder("ORDER_ID")
 
-    // Do some work
-    Thread.sleep(150000)
-
-    // Close connection
+    // Close connection after 30s
+    Thread.sleep(30000)
     exchange.stop()
   }
 }
