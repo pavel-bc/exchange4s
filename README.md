@@ -25,3 +25,7 @@ Check [`examples`](src/example/scala) directory. To run one of examples, execute
 ```sh
 sbt example:run
 `````
+
+## Showcase
+
+[![asciicast](https://asciinema.org/a/323363.svg)](https://asciinema.org/a/323363)
