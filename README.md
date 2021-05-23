@@ -17,7 +17,7 @@ Features:
 To build a JAR, execute:
 
 ```sh
-sbt package
+$ sbt package
 ```
 
 ## Examples
@@ -25,7 +25,7 @@ sbt package
 Check [`examples`](src/example/scala) directory. To run one of examples, execute:
 
 ```sh
-sbt example:run
+$ sbt example:run
 `````
 
 ## Showcase
